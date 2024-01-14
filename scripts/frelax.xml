@@ -1,0 +1,28 @@
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+      <ScoreFunction name="SFX1" weights="ref2015.wts">
+
+      </ScoreFunction>
+    </SCOREFXNS>
+
+    <RESIDUE_SELECTORS>
+
+    </RESIDUE_SELECTORS>>
+
+    TASKOPERATIONS>
+     ReadResfile name="resfile" filename="../surf_original.resfile" />
+    /TASKOPERATIONS>
+    <FILTERS>
+
+    </FILTERS>
+    <MOVERS>
+     <Backrub name="frelax"/>
+     FastRelax name="frelax" cst_file="cst" scorefxn="SFX1" />	
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+     <Add mover_name="frelax"/>
+     Add mover_name="frelax" />
+    </PROTOCOLS>
+</ROSETTASCRIPTS>

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=raptor_x
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 4096
+#SBATCH --time 72:00:00
+
+for file in *.fasta ; do /data/brussel/vo/000/bvo00014/RaptorX_Property_Fast/oneline_command.sh $file 1 0 ; done

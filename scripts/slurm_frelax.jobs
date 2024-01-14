@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=frelax_designs
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 4096
+#SBATCH --time 72:00:00
+#SBATCH --array=1-488
+
+pdb=$(sed -n "$SLURM_ARRAY_TASK_ID"p tasks.txt)
+
+/data/brussel/vo/000/bvo00014/Rosetta/main/source/bin/rosetta_scripts.default.linuxgccrelease -s $pdb -parser:protocol frelax.xml -nstruct 1 > stdout.txt
+
